@@ -100,6 +100,34 @@ wukong-robot 支持运行在以下的设备和系统中：
 ## 安装 ##
 
 见 [wukong-robot 安装教程](https://www.hahack.com/wukong-contrib/#/install) 。
+```
+mac安装过程：
+brew install portaudio sox ffmpeg swig
+pip install pyaudio
+
+#install
+cd ~/project/
+git clone https://github.com/yanjingang/wukong-robot.git
+cd wukong-robot
+pip  install -r requirements.txt
+cp snowboy/_snowboydetect.so.mac snowboy/_snowboydetect.so
+
+#conf
+cd ~/
+git clone https://github.com/yanjingang/wukong-plugins.git .wukong
+cd ~/.wukong/contrib/
+pip install -r contrib/requirements.txt
+vim ~/.wukong/config.yml # change hotword
+
+#run
+cd ~/project/wukong-robot/
+python wukong.py
+
+#exit
+Ctrl+\
+
+
+```
 
 ## 升级
 
