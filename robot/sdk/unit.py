@@ -1,4 +1,5 @@
-# encoding:utf-8
+# -*- coding: utf-8-*-
+# 百度UNIT技能
 import requests
 import datetime
 import uuid

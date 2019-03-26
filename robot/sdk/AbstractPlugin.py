@@ -1,3 +1,16 @@
+# -*- coding: utf-8-*-
+'''
+技能插件基类
+demo:
+    from robot.sdk.AbstractPlugin import AbstractPlugin
+    class Plugin(AbstractPlugin):
+
+        def handle(self, text, parsed):
+            self.say('hello world!', cache=True)
+
+        def isValid(self, text, parsed):
+            return any(word in text for word in ["打招呼", u"打个招呼", u"还活着吗"])
+'''
 from abc import ABCMeta, abstractmethod
 from robot import constants
 from robot import logging

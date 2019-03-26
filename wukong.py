@@ -27,18 +27,14 @@ class Wukong(object):
         self._interrupted = False        
         print('''
 ********************************************************
-*          wukong-robot - 中文语音对话机器人           *
-*          (c) 2019 潘伟洲 <m@hahack.com>              *
-*     https://github.com/wzpan/wukong-robot.git        *
+*                   中文语音对话机器人                   *
 ********************************************************
-
-            如需退出，可以按 Ctrl-4 组合键。
-
+            如需退出，可以按 Ctrl-\ 组合键。
 ''')
         
         config.init()
         self._conversation = Conversation(self._profiling)
-        self._conversation.say('{} 你好！试试对我喊唤醒词叫醒我吧'.format(config.get('first_name', '主人')), True)
+        self._conversation.say('{}好！我在打盹，试试叫醒我吧！'.format(config.get('first_name', '主人')), True)
         self._observer = Observer()
         event_handler = ConfigMonitor(self._conversation)
         self._observer.schedule(event_handler, constants.CONFIG_PATH, False)

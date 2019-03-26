@@ -1,3 +1,20 @@
+# -*- coding: utf-8-*-
+'''
+在标准库 logging 模块的基础上封装的一个模块，最大的好处是同时支持输出到 stdout 和分片日志文件中，并统一了日志的输出格式。
+
+对于stdout，level 为 INFO 级别及以上的日志才会被打印，以节省性能开销；
+对于文件输出，level 为 DEBUG 级别及以上的日志才被打印，以方便获取更丰富的调试信息。
+robot.logging 模块使用上和标准的 logging 模块并无二致，区别仅仅在于引用方式上:
+from robot import logging
+
+logger = logging.getLogger(__name__)
+
+logger.debug('this is a debug message')
+logger.info('this is an info message')
+logger.error('this is an error message')
+logger.critical('this is a critical message')
+
+'''
 import logging
 import sys
 import os

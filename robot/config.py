@@ -1,4 +1,5 @@
 # -*- coding: utf-8-*-
+# 配置模块，用于获取配置信息
 import yaml
 import logging
 import os

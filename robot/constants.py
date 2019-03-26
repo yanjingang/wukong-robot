@@ -1,4 +1,5 @@
 # -*- coding: utf-8-*-
+# 系统常量：相关的目录和文件位置
 import os
 import shutil
 
