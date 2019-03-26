@@ -114,7 +114,7 @@ cp snowboy/_snowboydetect.so.mac snowboy/_snowboydetect.so
 
 #conf
 cd ~/
-git clone https://github.com/yanjingang/wukong-plugins.git .wukong
+git clone https://github.com/yanjingang/.wukong.git
 cd ~/.wukong/contrib/
 pip install -r contrib/requirements.txt
 vim ~/.wukong/config.yml # change hotword
