@@ -116,7 +116,7 @@ cp snowboy/_snowboydetect.so.mac snowboy/_snowboydetect.so
 cd ~/
 git clone https://github.com/yanjingang/.wukong.git
 cd ~/.wukong/contrib/
-pip install -r contrib/requirements.txt
+pip install -r requirements.txt
 vim ~/.wukong/config.yml # change hotword
 
 #run
