@@ -34,7 +34,7 @@ class Wukong(object):
         
         config.init()
         self._conversation = Conversation(self._profiling)
-        self._conversation.say('{}好！我在打盹，试试叫醒我吧！'.format(config.get('first_name', '主人')), True)
+        self._conversation.say('{}，俺老猪先睡个觉，有事叫{}'.format(config.get('first_name', '主人'),config.get('robot_name_cn', '八戒')), True)
         self._observer = Observer()
         event_handler = ConfigMonitor(self._conversation)
         self._observer.schedule(event_handler, constants.CONFIG_PATH, False)
