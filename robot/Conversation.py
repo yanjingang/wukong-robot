@@ -12,6 +12,7 @@ from robot import logging, ASR, TTS, NLU, AI, Player, config, constants, utils, 
 logger = logging.getLogger(__name__)
 
 class Conversation(object):
+    """对话管理"""
 
     def __init__(self, profiling=False):
         self.reload()
