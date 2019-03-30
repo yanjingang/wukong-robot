@@ -47,13 +47,16 @@ class Wukong(object):
         self._observer.stop()
 
     def _detected_callback(self):
+        """唤醒回调函数"""
         if not utils.is_proper_time():
             logger.warning('勿扰模式开启中')
             return
         if self._conversation.isRecording:
             logger.warning('正在录音中，跳过')
             return
+        #播放唤醒响应声
         Player.play(constants.getData('beep_hi.wav'))
+        #开始收音
         logger.info('开始录音')
         self._conversation.interrupt()
         self._conversation.isRecording = True;
@@ -91,6 +94,7 @@ class Wukong(object):
             pass
 
     def initDetector(self):
+        """初始化唤醒探测器"""
         if self.detector is not None:
             self.detector.terminate()
         models = [
@@ -98,9 +102,11 @@ class Wukong(object):
             constants.getHotwordModel(utils.get_do_not_bother_on_hotword()),
             constants.getHotwordModel(utils.get_do_not_bother_off_hotword())
         ]
+        #唤醒词检测函数，调整sensitivity参数可修改唤醒词检测的准确性
         self.detector = snowboydecoder.HotwordDetector(models, sensitivity=config.get('sensitivity', 0.5))
         # main loop
         try:
+            #唤醒参数设置及成功唤醒后的回调设置
             self.detector.start(detected_callback=[self._detected_callback,
                                                    self._do_not_bother_on_callback,
                                                    self._do_not_bother_off_callback],
@@ -109,6 +115,7 @@ class Wukong(object):
                                 silent_count_threshold=config.get('silent_threshold', 15),
                                 recording_timeout=config.get('recording_timeout', 5) * 4,
                                 sleep_time=0.03)
+            #释放资源
             self.detector.terminate()
         except Exception as e:
             logger.critical('离线唤醒机制初始化失败：{}'.format(e))

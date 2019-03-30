@@ -20,7 +20,7 @@ class Conversation(object):
         self.history = []
         # 沉浸模式，处于这个模式下，被打断后将自动恢复这个技能
         self.immersiveMode = None
-        self.isRecording = False
+        self.isRecording = False    #是否开始录制话筒声音
         self.profiling = profiling
 
     def getHistory(self):
@@ -36,9 +36,13 @@ class Conversation(object):
     def reload(self):
         """ 重新初始化 """
         try:
+            #语音识别引擎
             self.asr = ASR.get_engine_by_slug(config.get('asr_engine', 'tencent-asr'))
+            #聊天机器人
             self.ai = AI.get_robot_by_slug(config.get('robot', 'tuling'))
+            #语音合成引擎
             self.tts = TTS.get_engine_by_slug(config.get('tts_engine', 'baidu-tts'))
+            #语义理解
             self.nlu = NLU.get_engine_by_slug(config.get('nlu_engine', 'unit'))
             self.player = None
             self.brain = Brain(self)
