@@ -110,12 +110,14 @@ robot: emotibot
 # 图灵机器人	
 # http://www.tuling123.com
 tuling:
-    tuling_key: '98f95153fb5c4684a5602b909949ba61'  # 建议使用自己的图灵机器人API Key
+    #tuling_key: '98f95153fb5c4684a5602b909949ba61'  # 建议使用自己的图灵机器人API Key
+    tuling_key: '853e634cd508411685e58d85550f77f6'  # 建议使用自己的图灵机器人API Key
 
 # 小影机器人
 # http://botfactory.emotibot.com/
 emotibot:
-    appid: '32ee80dddb36f1dc5356517503b3f55e'
+    #appid: '32ee80dddb36f1dc5356517503b3f55e'
+    appid: 'cf75566779949282de3c0bcaf70b1d1e'
 
 # 邮箱
 # 如果使用网易邮箱，还需设置允许第三方客户端收发邮件
